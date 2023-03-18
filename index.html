@@ -17,77 +17,73 @@
           <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото профиля">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button type="button" class="profile__edit-button button"></button>
+            <button type="button" class="profile__edit-button button" aria-label="Редактировать профиль"></button>
             <p class="profile__job">Исследователь океана</p>
           </div>
         </div>
-        <button type="button" class="profile__add-button button"></button>
+        <button type="button" class="profile__add-button button" aria-label="Добавить пост"></button>
       </section>
       <section class="posts">
-        <div class="post">
+        <article class="post">
           <img class="post__image" src="./images/Karachaevsk.jpg" alt="Фото Карачаевска">
           <div class="post__description">
             <h2 class="post__title">Карачаевск</h2>
-            <button type="button" class="post__like-button"></button>
+            <button type="button" class="post__like-button" aria-label="Поставить лайк"></button>
           </div>
-        </div>
-        <div class="post">
+        </article>
+        <article class="post">
           <img class="post__image" src="./images/Elbrus.jpg" alt="Фото горы Эльбрус">
           <div class="post__description">
             <h2 class="post__title">Гора Эльбрус</h2>
-            <button type="button" class="post__like-button"></button>
+            <button type="button" class="post__like-button" aria-label="Поставить лайк"></button>
           </div>
-        </div>
-        <div class="post">
+        </article>
+        <article class="post">
           <img class="post__image" src="./images/Domabay.svg" alt="Фото гор Домбая">
           <div class="post__description">
             <h2 class="post__title">Домбай</h2>
-            <button type="button" class="post__like-button"></button>
+            <button type="button" class="post__like-button" aria-label="Поставить лайк"></button>
           </div>
-        </div>
-        <div class="post">
+        </article>
+        <article class="post">
           <img class="post__image" src="./images/Gunib.jpg" alt="Фото села Гуниб">
           <div class="post__description">
             <h2 class="post__title">Гуниб</h2>
-            <button type="button" class="post__like-button"></button>
+            <button type="button" class="post__like-button" aria-label="Поставить лайк"></button>
           </div>
-        </div>
-        <div class="post">
+        </article>
+        <article class="post">
           <img class="post__image" src="./images/barhan-sarykum.jpg" alt="Фото Бархана Сарыкум">
           <div class="post__description">
             <h2 class="post__title">Бархан Сарыкум</h2>
-            <button type="button" class="post__like-button"></button>
+            <button type="button" class="post__like-button" aria-label="Поставить лайк"></button>
           </div>
-        </div>
-        <div class="post">
+        </article>
+        <article class="post">
           <img class="post__image" src="./images/sulakskii-kanon.jpg" alt="Фото Сулакского каньона">
           <div class="post__description">
             <h2 class="post__title">Сулакский каньон</h2>
-            <button type="button" class="post__like-button"></button>
+            <button type="button" class="post__like-button" aria-label="Поставить лайк"></button>
           </div>
-        </div>
+        </article>
       </section>
-      <footer class="footer">
-        <p class="footer__copyright">&copy;&nbsp;2023 Mesto Russia</p>
-      </footer>
     </main>
+    <footer class="footer">
+        <p class="footer__copyright">&copy;&nbsp;2023 Mesto Russia</p>
+    </footer>
 
     <!-- Popup редактирования профиля -->
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
-        <button type="button" class="popup__close-button button"></button>
-        <form class="popup__form">
+        <button type="button" class="popup__close-button button" aria-label="Закрыть окно"></button>
+        <form name="popupEditProfileForm" class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <label for="name" class="popup__field">
-            <input type="text" class="popup__input popup__input_name" id="name" placeholder="Введите имя">
-          </label>
-          <label for="job" class="popup__field">
-            <input type="text" class="popup__input popup__input_job" id="job" placeholder="Расскажите о себе">
-          </label>
+          <input type="text" name="name" class="popup__input popup__input_type_name" id="name" placeholder="Введите имя">
+          <input type="text" name="job" class="popup__input popup__input_type_job" id="job" placeholder="Расскажите о себе">
           <button type="submit" class="popup__save-button">Сохранить</button>
         </form>
       </div>
-    </section>
+    </div>
 
   </div>
   <script src="./scripts/index.js"></script>

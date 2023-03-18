@@ -1,6 +1,6 @@
 let popupElement = document.querySelector(".popup");
-let nameInput = document.querySelector(".popup__input_name");
-let jobInput = document.querySelector(".popup__input_job");
+let nameInput = document.querySelector(".popup__input_type_name");
+let jobInput = document.querySelector(".popup__input_type_job");
 let nameProfile = document.querySelector(".profile__name");
 let jobProfile = document.querySelector(".profile__job");
 let popupCloseButtonElement = popupElement.querySelector(".popup__close-button");
@@ -17,16 +17,19 @@ const closePopup = function () {
   popupElement.classList.remove("popup_opened");
 }
 
+/* Логика не применяется в этом спринте
 const closePopupByClickOverlay = function (event) {
   if (event.target !== event.currentTarget) {
     return;
   }
   closePopup();
-}
+} */
 
 popupEditButtonElement.addEventListener('click', openPopup);
 popupCloseButtonElement.addEventListener('click', closePopup);
-popupElement.addEventListener('click', closePopupByClickOverlay);
+/* Логика не применяется в этом спринте
+popupElement.addEventListener('click', closePopupByClickOverlay);*/
+
 
 // Обработчик «отправки» формы
 function handleFormSubmit (evt) {
