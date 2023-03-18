@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Сервис: Место</title>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <img class="header__logo" src="./images/logo.svg" alt="Лого сервиса: Место">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <div class="profile__wrapper">
+          <img class="profile__avatar" src="./images/profile-photo.jpg" alt="Фото профиля">
+          <div class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button type="button" class="profile__edit-button button"></button>
+            <p class="profile__job">Исследователь океана</p>
+          </div>
+        </div>
+        <button type="button" class="profile__add-button button"></button>
+      </section>
+      <section class="posts">
+        <div class="post">
+          <img class="post__image" src="./images/Karachaevsk.jpg" alt="Фото Карачаевска">
+          <div class="post__description">
+            <h2 class="post__title">Карачаевск</h2>
+            <button type="button" class="post__like-button"></button>
+          </div>
+        </div>
+        <div class="post">
+          <img class="post__image" src="./images/Elbrus.jpg" alt="Фото горы Эльбрус">
+          <div class="post__description">
+            <h2 class="post__title">Гора Эльбрус</h2>
+            <button type="button" class="post__like-button"></button>
+          </div>
+        </div>
+        <div class="post">
+          <img class="post__image" src="./images/Domabay.svg" alt="Фото гор Домбая">
+          <div class="post__description">
+            <h2 class="post__title">Домбай</h2>
+            <button type="button" class="post__like-button"></button>
+          </div>
+        </div>
+        <div class="post">
+          <img class="post__image" src="./images/Gunib.jpg" alt="Фото села Гуниб">
+          <div class="post__description">
+            <h2 class="post__title">Гуниб</h2>
+            <button type="button" class="post__like-button"></button>
+          </div>
+        </div>
+        <div class="post">
+          <img class="post__image" src="./images/barhan-sarykum.jpg" alt="Фото Бархана Сарыкум">
+          <div class="post__description">
+            <h2 class="post__title">Бархан Сарыкум</h2>
+            <button type="button" class="post__like-button"></button>
+          </div>
+        </div>
+        <div class="post">
+          <img class="post__image" src="./images/sulakskii-kanon.jpg" alt="Фото Сулакского каньона">
+          <div class="post__description">
+            <h2 class="post__title">Сулакский каньон</h2>
+            <button type="button" class="post__like-button"></button>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">
+        <p class="footer__copyright">&copy;&nbsp;2023 Mesto Russia</p>
+      </footer>
+    </main>
+
+    <!-- Popup редактирования профиля -->
+    <section class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button button"></button>
+        <form class="popup__form">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <label for="name" class="popup__field">
+            <input type="text" class="popup__input popup__input_name" id="name" placeholder="Введите имя">
+          </label>
+          <label for="job" class="popup__field">
+            <input type="text" class="popup__input popup__input_job" id="job" placeholder="Расскажите о себе">
+          </label>
+          <button type="submit" class="popup__save-button">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+  </div>
+  <script src="./scripts/index.js"></script>
+</body>
+</html>
