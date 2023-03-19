@@ -1,7 +1,7 @@
 .profile__info {
   max-width: 336px;
   display: grid;
-  grid-template-columns: 294px 1fr;
+  grid-template-columns: minmax(0, auto) 24px;
   gap: 7px 18px;
   align-items: baseline;
 }
@@ -10,7 +10,7 @@
   .profile__info {
     max-width: 282px;
     padding: 0 19px 0 46px;
-    grid-template-columns: 189px 1fr;
+    grid-template-columns: minmax(0, auto) 18px;
     gap: 7px 10px;
     margin-bottom: 33px;
   }
