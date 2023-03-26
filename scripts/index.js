@@ -1,30 +1,3 @@
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 const popupElements = document.querySelectorAll(".popup");
 const popupEditProfileElement = document.querySelector(".popup_type_edit-profile");
 const popupAddCardElement = document.querySelector(".popup_type_add-card");
@@ -43,11 +16,10 @@ const imageInput = popupAddCardElement.querySelector(".popup__input_type_image")
 const popupImageElement = document.querySelector(".popup__image");
 const popupCaptionElement = document.querySelector(".popup__caption");
 const postsElement = document.querySelector(".posts");
-
+const cardTemplate = document.querySelector(".post__template").content;
 
 // Создание карточки
 function createCard (data) {
-  const cardTemplate = document.querySelector(".post__template").content;
   const postElement = cardTemplate.querySelector(".post").cloneNode(true);
   const imageElement = postElement.querySelector(".post__image");
   const deleteButtonElement = postElement.querySelector(".post__delete-button");
@@ -114,10 +86,9 @@ formCardElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const newCard = {name: titleInput.value, link: imageInput.value};
   const newPost = createCard(newCard);
-  titleInput.value = ""
-  imageInput.value = ""
   renderCard(newPost);
   closePopup(popupAddCardElement);
+  evt.target.reset();
 });
 
 
