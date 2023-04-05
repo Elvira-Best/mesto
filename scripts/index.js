@@ -2,9 +2,9 @@ const popupElements = document.querySelectorAll(".popup");
 const popupEditProfileElement = document.querySelector(".popup_type_edit-profile");
 const popupAddCardElement = document.querySelector(".popup_type_add-card");
 const popupOpenImageElement = document.querySelector(".popup_type_image-open");
-const popupCloseButtonElement = document.querySelectorAll(".popup__close-button");
-const formProfileElement = popupEditProfileElement.querySelector(".popup__form");
-const formCardElement = popupAddCardElement.querySelector(".popup__form");
+const popupCloseButtonsElement = document.querySelectorAll(".popup__close-button");
+const formProfileElement = document.forms["profile-form"];
+const formCardElement = document.forms["card-form"];
 const popupEditButtonElement = document.querySelector(".profile__edit-button");
 const nameInput = popupEditProfileElement.querySelector(".popup__input_type_name");
 const jobInput = popupEditProfileElement.querySelector(".popup__input_type_job");
@@ -20,8 +20,8 @@ const cardTemplate = document.querySelector(".post__template").content;
 
 const submitButtonEditProfile = formProfileElement.querySelector(".popup__save-button");
 const submitButtonAddCard = formCardElement.querySelector(".popup__save-button");
-const inputListEditProfile = formProfileElement.querySelectorAll(".popup__input");
-const inputListAddCard= formCardElement.querySelectorAll(".popup__input");
+const editProfileInputList = formProfileElement.querySelectorAll(".popup__input");
+const addCardInputList = formCardElement.querySelectorAll(".popup__input");
 
 // Создание карточки, действия с карточками
 function createCard (data) {
@@ -74,7 +74,7 @@ popupEditButtonElement.addEventListener('click', () => {
   errorsReset(formProfileElement);
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
-  toggleButtonState(inputListEditProfile, submitButtonEditProfile, validationConfig.inactiveButtonClass); // по заданию кнопка активна при открытии попапа, для неактивной перенести toogle
+  toggleButtonState(editProfileInputList, submitButtonEditProfile, validationConfig.inactiveButtonClass); // по заданию кнопка активна при открытии попапа, для неактивной перенести toogle
   openPopup(popupEditProfileElement);
 });
 
@@ -90,7 +90,7 @@ formProfileElement.addEventListener('submit', (evt) => {
 popupAddButtonElement.addEventListener('click', () => {
   formCardElement.reset();
   errorsReset(formCardElement);
-  toggleButtonState(inputListAddCard, submitButtonAddCard, validationConfig.inactiveButtonClass);
+  toggleButtonState(addCardInputList, submitButtonAddCard, validationConfig.inactiveButtonClass);
   openPopup(popupAddCardElement);
 });
 
@@ -104,7 +104,7 @@ formCardElement.addEventListener('submit', (evt) => {
 });
 
 //Закрытие попапов
-popupCloseButtonElement.forEach((closeButton) => {
+popupCloseButtonsElement.forEach((closeButton) => {
   const closestPopup = closeButton.closest(".popup");
   closeButton.addEventListener('click', () => closePopup(closestPopup));
 });
