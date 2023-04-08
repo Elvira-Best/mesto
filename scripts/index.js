@@ -20,7 +20,6 @@ const cardTemplate = document.querySelector(".post__template").content;
 const submitButtonEditProfile = formProfileElement.querySelector(".popup__save-button");
 const submitButtonAddCard = formCardElement.querySelector(".popup__save-button");
 const editProfileInputList = formProfileElement.querySelectorAll(".popup__input");
-const addCardInputList = formCardElement.querySelectorAll(".popup__input");
 
 // Создание карточки, действия с карточками
 function createCard (data) {
@@ -98,6 +97,7 @@ formCardElement.addEventListener('submit', (evt) => {
   const newCard = {name: titleInput.value, link: imageInput.value};
   const newPost = createCard(newCard);
   renderCard(newPost);
+  disableButton(submitButtonAddCard, validationConfig.inactiveButtonClass);
   closePopup(popupAddCardElement);
 });
 
