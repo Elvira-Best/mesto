@@ -19,7 +19,6 @@ export default class FormValidator {
   _setEventListeners () {
     this._inputList.forEach((input) => {
       input.addEventListener('input', () => {
-        this._input = input;
         this._checkInputValidity(input);
         this._toggleButtonState();
       });
@@ -27,27 +26,27 @@ export default class FormValidator {
   };
 
   // Функция, которая проверяет валидность поля
-  _checkInputValidity () {
-    this._inputErrorMessage = this._form.querySelector(`#${this._input.id}-input-error`);
-    if (!this._input.validity.valid) {
-      this._showInputError();
+  _checkInputValidity (input) {
+    const inputErrorMessage = this._form.querySelector(`#${input.id}-input-error`);
+    if (!input.validity.valid) {
+      this._showInputError(inputErrorMessage, input);
     } else {
-      this._hideInputError();
+      this._hideInputError(inputErrorMessage, input);
     }
   };
 
   // Функция, которая добавляет класс с ошибкой
-  _showInputError () {
-    this._input.classList.add(this._inputErrorClass);
-    this._inputErrorMessage.textContent = this._input.validationMessage;
-    this._inputErrorMessage.classList.add(this._errorClass);
+  _showInputError (inputErrorMessage, input) {
+    input.classList.add(this._inputErrorClass);
+    inputErrorMessage.textContent = input.validationMessage;
+    inputErrorMessage.classList.add(this._errorClass);
   }
 
   // Функция, которая удаляет класс с ошибкой
-  _hideInputError () {
-    this._input.classList.remove(this._inputErrorClass);
-    this._inputErrorMessage.textContent = '';
-    this._inputErrorMessage.classList.remove(this._errorClass);
+  _hideInputError (inputErrorMessage, input) {
+    input.classList.remove(this._inputErrorClass);
+    inputErrorMessage.textContent = '';
+    inputErrorMessage.classList.remove(this._errorClass);
   }
 
   // Функция, которая переключает класс с ошибкой для кнопки
@@ -55,34 +54,33 @@ export default class FormValidator {
     if (this._hasInValidInput(this._inputList)) {
       this._disableButton();
     } else {
-      this._enableButton(this._button);
+      this._enableButton();
     }
   };
 
   // Функция, которая проверяет наличие полей с неправильным вводом
-  _hasInValidInput() {
+  _hasInValidInput () {
     return Array.from(this._inputList).some((input) => !input.validity.valid);
   };
 
   // Функция, которая делает кнопку активной
-  _enableButton() {
+  _enableButton () {
     this._button.classList.remove(this._inactiveButtonClass);
     this._button.removeAttribute("disabled");
   };
 
   // Функция, которая делает кнопку неактивной
-  _disableButton() {
+  _disableButton () {
     this._button.classList.add(this._inactiveButtonClass);
     this._button.setAttribute("disabled", true);
   };
 
   //Сброс ошибок при открытии попапов
-  errorsReset() {
+  resetErrors() {
     this._inputList.forEach((input) => {
-      this._input = input;
-      this._inputErrorMessage = this._form.querySelector(`#${this._input.id}-input-error`);
+      const inputErrorMessage = this._form.querySelector(`#${input.id}-input-error`);
       if (!input.validity.valid) {
-        this._hideInputError();
+        this._hideInputError(inputErrorMessage, input);
       }
     });
     this._disableButton();

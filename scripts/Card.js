@@ -9,8 +9,7 @@ export default class Card {
 
   // клонирование template-элемента
   _getTemplate () {
-    this._cardTemplate = document.querySelector(this._templateSelector).content;
-    return this._cardTemplate.querySelector('.post').cloneNode(true);
+    return document.querySelector(this._templateSelector).content.querySelector('.post').cloneNode(true);
   }
 
   _likeToggle = () => {
@@ -43,7 +42,6 @@ export default class Card {
     this._imageElement.alt =  this._cardName;
     this._titleElement.textContent = this._cardName;
     this._setEventListeners();
-    console.log(this._titleElement)
     return this._cardClone
   }
 }

@@ -75,7 +75,7 @@ function openImagePopup (cardData) {
 //Открытие попапа редактирования профиля
 popupEditButtonElement.addEventListener('click', () => {
   formProfileElement.reset();
-  profileValidatorForm.errorsReset();
+  profileValidatorForm.resetErrors();
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
   openPopup(popupEditProfileElement);
@@ -92,7 +92,7 @@ formProfileElement.addEventListener('submit', (evt) => {
 //Открытие попапа добавления карточки
 popupAddButtonElement.addEventListener('click', () => {
   formCardElement.reset();
-  postValidatorForm.errorsReset();
+  postValidatorForm.resetErrors();
   openPopup(popupAddCardElement);
 });
 
@@ -107,12 +107,8 @@ formCardElement.addEventListener('submit', (evt) => {
 //Закрытие попапов кликом на крестик и оверлей
 popupElements.forEach((popup) => {
   popup.addEventListener('mousedown', (evt) => {
-    if (evt.target.classList.contains("popup_opened")) {
-      closePopup(popup)
-    };
-    if (evt.target.classList.contains("popup__close-button")) {
-      closePopup(popup)
-    };
+    if (evt.target.classList.contains("popup_opened") || evt.target.classList.contains("popup__close-button"))
+    closePopup(popup)
   });
 });
 
