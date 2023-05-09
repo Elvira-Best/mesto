@@ -11,13 +11,13 @@ import {
   templateSelector,
   formProfileElement,
   formCardElement
-} from "./scripts/utils/initialCards.js";
-import Card from "./scripts/components/Card.js";
-import FormValidator from "./scripts/components/FormValidator.js";
-import PopupWithImage from "./scripts/components/PopupWithImage.js";
-import Section from "./scripts/components/Section.js";
-import UserInfo from "./scripts/components/UserInfo.js";
-import PopupWithForm from "./scripts/components/PopupWithForm.js";
+} from "../scripts/utils/initialCards.js";
+import Card from "../scripts/components/Card.js";
+import FormValidator from "../scripts/components/FormValidator.js";
+import PopupWithImage from "../scripts/components/PopupWithImage.js";
+import Section from "../scripts/components/Section.js";
+import UserInfo from "../scripts/components/UserInfo.js";
+import PopupWithForm from "../scripts/components/PopupWithForm.js";
 
 // Создание экземпляров классов UserInfo, отвечает за управление отображением информации о пользователе на странице
 const userInfo = new UserInfo(userInfoConfig);
@@ -43,16 +43,14 @@ const postValidatorForm = new FormValidator(validationConfig, formCardElement);
 postValidatorForm.enableValidation();
 
 // Попапы с формами, создание экземпляров классов
-const profileEditPopup = new PopupWithForm(popupProfileSelector, (evt) => {
-  evt.preventDefault();
-  userInfo.setUserInfo(profileEditPopup.getInputValues());
+const profileEditPopup = new PopupWithForm(popupProfileSelector, (data) => {
+  userInfo.setUserInfo(data);
   profileEditPopup.close();
 })
 profileEditPopup.setEventListeners()
 
-const addCardPopup = new PopupWithForm(popupAddCardSelector, (evt) => {
-  evt.preventDefault();
-  section.addItem(section.renderer(addCardPopup.getInputValues()));
+const addCardPopup = new PopupWithForm(popupAddCardSelector, (data) => {
+  section.addItem(section.renderer(data));
   addCardPopup.close();
 })
 addCardPopup.setEventListeners()
